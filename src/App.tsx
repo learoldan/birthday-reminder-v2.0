@@ -1,15 +1,17 @@
-import './App.css'
 import { BrowserRouter, Routes, Route } from 'react-router'
 import HomePage from './pages/HomePage'
 import UserPage from './pages/UserPage'
+import Layout from './layout/Layout'
 
 function App() {
   return (
     <BrowserRouter>
-    <Routes>
-      <Route path="/" element={<HomePage />} />
-      <Route path="/user" element={<UserPage />} />
-    </Routes>
+      <Layout>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/user" element={<UserPage />} />
+        </Routes>
+      </Layout>
   </BrowserRouter>
   )
 }

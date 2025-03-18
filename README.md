@@ -5,7 +5,7 @@ A web app that allows users to log in using Auth0 and add birthdays to a list, t
 
 ## Link
 
-https://turnosmendoza.vercel.app/
+https://birthday-reminder-v2-0.vercel.app/
 
 ## Tech Stack
 
