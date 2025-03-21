@@ -1,23 +1,20 @@
 import { Logo } from '../ui/Icons'
 import { Link } from 'react-router'
 import { useAuth0 } from '@auth0/auth0-react'
-import { getInitials } from '../utils'
 import { BeatLoader } from 'react-spinners'
+import LoginButton from '../components/LoginButton'
+import ProfileMenu from '../components/ProfileMenu'
+import ThemeToggle from '../components/ThemeToggle'
 
 export default function Header() {
-    const { loginWithRedirect, user, logout, isAuthenticated, isLoading } =
-        useAuth0()
-    const initials = getInitials(user?.name || user?.nickname || 'User')
+    const { logout, isAuthenticated, isLoading } = useAuth0()
 
-    const handleLogin = () => {
-        loginWithRedirect()
-    }
     const handleLogout = () => {
         logout()
     }
 
     return (
-        <header className='sticky top-0 backdrop-blur-sm bg-sky-50 text-lg h-16 p-4 w-full flex items-center justify-between'>
+        <header className='sticky top-0 backdrop-blur-sm bg-sky-50 dark:bg-sky-950 text-lg h-16 p-4 w-full flex items-center justify-between'>
             <Link to='/'>
                 <Logo />
             </Link>
@@ -26,12 +23,7 @@ export default function Header() {
                     isLoading ? (
                         <BeatLoader color='#ad46ff' />
                     ) : (
-                        <button
-                            onClick={handleLogin}
-                            className='cursor-pointer bg-transparent hover:bg-purple-500 text-sm text-purple-500 hover:text-white font-semibold py-2 px-4 border border-purple-500 hover:border-transparent rounded-lg'
-                        >
-                            Login
-                        </button>
+                        <LoginButton />
                     )
                 ) : (
                     <>
@@ -41,20 +33,10 @@ export default function Header() {
                         >
                             Sing up
                         </button>
-                        <Link to='/profile'>
-                            {user?.picture ? (
-                                <img
-                                    className='inline-block rounded-full ring ring-white w-12 h-12'
-                                    src={user?.picture}
-                                />
-                            ) : (
-                                <div className='inline-flex items-center justify-center w-12 h-12 text-xl text-white bg-indigo-500 rounded-full'>
-                                    {initials}
-                                </div>
-                            )}
-                        </Link>
+                        <ProfileMenu />
                     </>
                 )}
+                <ThemeToggle />
             </div>
         </header>
     )
