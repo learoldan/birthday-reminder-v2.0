@@ -1,4 +1,11 @@
-export default function HomePage () {
-    return <h1 className="bg-red-400">Home Page</h1>
-    
+import HeroOne from '../components/HeroOne'
+import HeroTwo from '../components/HeroTwo'
+
+export default function HomePage() {
+    return (
+        <>
+            <HeroOne />
+            <HeroTwo />
+        </>
+    )
 }

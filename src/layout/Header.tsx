@@ -14,16 +14,16 @@ export default function Header() {
     }
 
     return (
-        <header className='sticky top-0 backdrop-blur-sm bg-sky-50 dark:bg-sky-950 text-lg h-16 p-4 w-full flex items-center justify-between'>
+        <header className='absolute top-0 w-full flex justify-between items-center py-2 px-4 bg-purple-200/50 backdrop-blur-md'>
             <Link to='/'>
                 <Logo />
             </Link>
-            <div className='flex items-center justify-around gap-2'>
+            <nav className='flex items-center justify-around gap-2'>
                 {!isAuthenticated ? (
                     isLoading ? (
                         <BeatLoader color='#ad46ff' />
                     ) : (
-                        <LoginButton />
+                        <LoginButton variant='inverted'>Login</LoginButton>
                     )
                 ) : (
                     <>
@@ -37,7 +37,7 @@ export default function Header() {
                     </>
                 )}
                 <ThemeToggle />
-            </div>
+            </nav>
         </header>
     )
 }

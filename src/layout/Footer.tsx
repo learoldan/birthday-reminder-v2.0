@@ -1,6 +1,6 @@
 export default function Footer() {
     return (
-        <footer className='backdrop-blur-sm bg-sky-50 text-lg h-16 p-4 w-full flex items-center justify-center text-center'>
+        <footer className='w-full flex justify-center items-center py-2 px-4 bg-purple-300/50 backdrop-blur-md'>
             <p>
                 Made by <strong>Leandro Roldan </strong> 2025
             </p>
