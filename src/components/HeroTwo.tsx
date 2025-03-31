@@ -2,7 +2,7 @@ import LoginButton from './LoginButton'
 
 export default function HeroTwo() {
     return (
-        <section className='flex flex-col lg:flex-row-reverse items-center justify-center px-2 md:px-6 h-screen gap-6'>
+        <section className='flex flex-col lg:flex-row-reverse items-center justify-center px-2 md:px-6 h-[calc(100vh-72px)] lg:h-[calc(100vh-80px)] gap-6'>
             <div className='max-w-lg flex flex-col gap-2 md:gap-4 items-center text-center lg:items-start lg:text-left'>
                 <h2 className='text-4xl md:text-5xl xl:text-6xl font-bold leading-9 md:leading-12 xl:leading-15'>
                     Start saving those birthdays right now

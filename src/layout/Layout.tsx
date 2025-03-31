@@ -1,4 +1,3 @@
-// import Background from '../ui/Background'
 import { Props } from '../types'
 import Header from './Header'
 import Footer from './Footer'

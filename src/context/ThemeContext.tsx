@@ -1,15 +1,5 @@
-import { createContext, ReactNode, useEffect, useState } from 'react'
-
-type Theme = 'light' | 'dark'
-
-interface ThemeContextType {
-    theme: Theme
-    toggleTheme: () => void
-}
-
-interface Props {
-    children: ReactNode
-}
+import { createContext, useEffect, useState } from 'react'
+import { Theme, ThemeContextType, Props } from '../types'
 
 // eslint-disable-next-line react-refresh/only-export-components
 export const ThemeContext = createContext<ThemeContextType | undefined>(

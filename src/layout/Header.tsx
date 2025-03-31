@@ -14,7 +14,7 @@ export default function Header() {
     }
 
     return (
-        <header className='absolute top-0 w-full flex justify-between items-center py-2 px-4 bg-purple-200/50 backdrop-blur-md'>
+        <header className='sticky top-0 w-full flex justify-between items-center py-2 px-4 bg-purple-200/50 backdrop-blur-md'>
             <Link to='/'>
                 <Logo />
             </Link>

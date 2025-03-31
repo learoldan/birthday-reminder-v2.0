@@ -2,7 +2,7 @@ import LoginButton from './LoginButton'
 
 export default function HeroOne() {
     return (
-        <section className='flex flex-col lg:flex-row-reverse items-center justify-center px-2 md:px-6 h-screen gap-6'>
+        <section className='flex flex-col lg:flex-row-reverse items-center justify-center px-2 md:px-6 h-[calc(100vh-72px)] lg:h-[calc(100vh-80px)] gap-6'>
             <img
                 className='h-64 lg:h-80 w-64 lg:w-80 rounded-full border-2 border-pink-400 object-contain bg-pink-200'
                 src='./birthday-girl.png'
