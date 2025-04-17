@@ -1,47 +1,22 @@
 import BirthdaysList from '../components/BirthdaysList'
+import { useAuth0 } from '@auth0/auth0-react'
+import { birthdays } from '../utils'
 
-const birthdays = [
-    {
-        birthdayId: '123aaa',
-        firstName: 'Paola',
-        lastName: 'Lorenzo',
-        birthday: '23-05',
-        monthOfBirthday: 'May',
-        notes: 'cumple Pao',
-    },
-    {
-        birthdayId: '123bbb',
-        firstName: 'Sirius',
-        lastName: 'Porchi',
-        birthday: '12-04',
-        monthOfBirthday: 'Apr',
-        notes: 'cumple Serampi',
-    },
-    {
-        birthdayId: '123ccc',
-        firstName: 'Orion',
-        lastName: 'Negrito',
-        birthday: '11-04',
-        monthOfBirthday: 'Apr',
-        notes: 'cumple Orioncete',
-    },
-    {
-        birthdayId: '123ddd',
-        firstName: 'Silvia',
-        lastName: 'Medina',
-        birthday: '27-10',
-        monthOfBirthday: 'Oct',
-        notes: 'cumple Mami',
-    },
-    {
-        birthdayId: '123eee',
-        firstName: 'Martin',
-        lastName: 'Roldan',
-        birthday: '11-11',
-        monthOfBirthday: 'Nov',
-        notes: 'cumple Papi',
-    },
-]
 export default function UserPage() {
-    return <BirthdaysList birthdays={birthdays} />
+    const { user } = useAuth0()
+
+    return (
+        <div className='flex flex-col items-center'>
+            <div className='max-w-lg flex flex-col gap-2 md:gap-4 items-center text-center'>
+                <h2 className='text-4xl md:text-5xl xl:text-6xl font-bold leading-9 md:leading-12 xl:leading-15'>
+                    {user?.name ? user.name : 'Hey You!'}
+                </h2>
+                <p className='text-lg text-cyan-700 dark:text-cyan-200 animate-pulse'>
+                    Add your loved ones' birthdays and then receive an email
+                    reminder{' '}
+                </p>
+            </div>
+            <BirthdaysList birthdays={birthdays} />
+        </div>
+    )
 }

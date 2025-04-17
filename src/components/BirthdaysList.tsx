@@ -48,7 +48,7 @@ export default function BirthdaysList({ birthdays }: Props) {
                 </table>
             </div>
 
-            <div className='md:hidden space-y-4'>
+            <div className='md:hidden space-y-4 min-w-[280px]'>
                 {birthdays.map((b: Birthday) => (
                     <div
                         key={b.birthdayId}
@@ -70,12 +70,13 @@ export default function BirthdaysList({ birthdays }: Props) {
                                     {b.monthOfBirthday}
                                 </span>
                             </p>
+                        </div>
+                        <div className='mt-3 flex justify-between text-sm text-gray-600 dark:text-gray-300'>
                             <p>
                                 Notes:{' '}
                                 <span className='font-medium'>{b.notes}</span>
                             </p>
                         </div>
-
                         <button className='mt-4 w-full bg-red-500 text-white py-2 rounded-md shadow-md hover:bg-red-600 transition'>
                             Delete
                         </button>
