@@ -1,4 +1,6 @@
 import { useAuth0 } from '@auth0/auth0-react'
+import { useEffect } from 'react'
+import { useNavigate } from 'react-router'
 import { ButtonProps } from '../types'
 
 const variantStyles: Record<'primary' | 'secondary' | 'inverted', string> = {
@@ -14,10 +16,23 @@ export default function LoginButton({
     children,
     variant = 'primary',
 }: ButtonProps) {
-    const { loginWithRedirect } = useAuth0()
+    const { loginWithRedirect, isAuthenticated } = useAuth0()
+    const navigate = useNavigate()
+
     const handleLogin = () => {
-        loginWithRedirect()
+        if (isAuthenticated) {
+            navigate('/user')
+        } else {
+            loginWithRedirect()
+        }
     }
+
+    useEffect(() => {
+        if (isAuthenticated) {
+            navigate('/user')
+        }
+    }, [isAuthenticated, navigate])
+
     return (
         <button onClick={handleLogin} className={variantStyles[variant]}>
             {children}
