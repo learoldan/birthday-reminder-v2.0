@@ -1,9 +1,14 @@
 import BirthdaysList from '../components/BirthdaysList'
 import { useAuth0 } from '@auth0/auth0-react'
-import { birthdays } from '../utils'
+// import { birthdays } from '../utils'
+import { useUserBirthdays } from '../hooks/useUserBirthdays'
 
 export default function UserPage() {
     const { user } = useAuth0()
+    const { birthdays, loading, error } = useUserBirthdays()
+
+    if (loading) return <p>Loading birthdays...</p>
+    if (error) return <p>Error: {error}</p>
 
     return (
         <div className='flex flex-col items-center'>

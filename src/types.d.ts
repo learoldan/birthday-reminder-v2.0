@@ -19,11 +19,11 @@ export interface ThemeContextType {
     toggleTheme: () => void
 }
 
-export type Birthday = {
+export interface Birthday {
+    userId: string
     birthdayId: string
     firstName: string
     lastName: string
-    birthday: string
-    monthOfBirthday: string
+    birthDay: string
     notes: string
 }
